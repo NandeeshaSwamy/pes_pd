@@ -708,7 +708,47 @@ report clock_skew -setup
 
 ![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/dbd809aa-dcda-43a1-97da-9f0ab81fbf08)
 
+# Day 5
+## Power Distribution Network and Routing
 
+After generating our clock tree network and verifying post routing STA checks we are ready to generate the power distribution network ```gen_pdn``` in OpenLANE:
+
+The PDN feature within OpenLANE will create:
+
+- Power ring global to the entire core
+- Power halo local to any preplaced cells
+- Power straps to bring power into the center of the chip
+- Power rails for the standard cells
+
+![image](https://github.com/yagnavivek/PES_OpenLane_PD/assets/93475824/b4fd0fda-f775-4b33-9aa8-c9a252ff19ab)
+
+Note: The pitch of the metal 1 power rails defines the height of the standard cells
+
+## Global and Detailed Routing
+
+OpenLANE uses TritonRoute as the routing engine ```run_routing``` for physical implementations of designs. Routing consists of two stages:
+
+- Global Routing - Routing guides are generated for interconnects on our netlist defining what layers, and where on the chip each of the nets will be reputed
+- Detailed Routing - Metal traces are iteratively laid across the routing guides to physically implement the routing guides
+
+If DRC errors persist after routing the user has two options:
+
+- Re-run routing with higher QoR settings
+- Manually fix DRC errors specific in tritonRoute.drc file
+
+## SPEF Extraction
+
+After routing has been completed interconnect parasitics can be extracted to perform sign-off post-route STA analysis. The parasitics are extracted into a SPEF file. The SPEF extractor is not included within OpenLANE as of now.
+
+- To use this engine we need to go to
+```
+cd Desktop/work/tools/SPEF_Extractor
+```
+- Next we need to use this command
+```
+python3 /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-09_19-58/tmp/merged.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-09_19-58/results/routing/picorv32a.def
+```
+- SPEF file is created in ```/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/16-09_19-58/results/routing/```
 
 
 
