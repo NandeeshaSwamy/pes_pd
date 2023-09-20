@@ -660,8 +660,8 @@ run_placement
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
 ![Screenshot from 2023-09-18 15-37-53](https://github.com/NandeeshaSwamy/pes_pd/assets/135755149/0b680ba6-2421-4d01-ab1f-dca52ebde8c3)
-![Screenshot from 2023-09-18 16-01-30](https://github.com/NandeeshaSwamy/pes_pd/assets/135755149/b59aef89-fcac-45b0-bbf3-8d2889f11263)
-![Screenshot from 2023-09-18 15-51-08](https://github.com/NandeeshaSwamy/pes_pd/assets/135755149/663bcda2-4357-4eef-b8cf-7387a9f5ff4a)
+![Screenshot from 2023-09-21 00-49-55](https://github.com/NandeeshaSwamy/pes_pd/assets/135755149/6531d89e-b577-4b3a-81c4-4e1396b30af3)
+![Screenshot from 2023-09-21 00-50-57](https://github.com/NandeeshaSwamy/pes_pd/assets/135755149/c87aa615-3658-41aa-89bc-e068fd73ab5c)
 
 
 ## Clock Tree Synthesis
